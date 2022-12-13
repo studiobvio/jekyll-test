@@ -1,0 +1,187 @@
+
+#Navigate to Parent Directory
+
+will@DESKTOP-BBDGR25 MINGW64 ~
+$ cd Documents
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents
+$ cd GitHub
+
+#Clone empty repository from Github
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub
+$ git clone https://github.com/studiobvio/jekyll-test.git
+Cloning into 'jekyll-test'...
+warning: You appear to have cloned an empty repository.
+
+#Be sure to CD into subfolder created from clone
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub
+$ cd jekyll-test
+
+
+#Confirm Git Status on main branch
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub/jekyll-test (main)
+$ git status
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+#Confirm Ruby, Bundler, and Jekyll are installed an right versions are included
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub/jekyll-test (main)
+$ ruby -v
+ruby 2.7.7p221 (2022-11-24 revision 168ec2b1e5) [x64-mingw32]
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub/jekyll-test (main)
+$ bundler -v
+Bundler version 2.3.26
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub/jekyll-test (main)
+$ jekyll -v
+jekyll 4.3.1
+
+
+#Create New jekyll project titled "docs" so it can be published on GitHub pointing to the Docs folder
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub/jekyll-test (main)
+$ jekyll new docs
+Running bundle install in C:/Users/will/Documents/GitHub/jekyll-test/docs...
+  Bundler: Fetching gem metadata from https://rubygems.org/............
+  Bundler: Resolving dependencies...
+  Bundler: Using public_suffix 5.0.1
+  Bundler: Using bundler 2.3.26
+  Bundler: Using colorator 1.1.0
+  Bundler: Using concurrent-ruby 1.1.10
+  Bundler: Using eventmachine 1.2.7 (x64-mingw32)
+  Bundler: Using http_parser.rb 0.8.0
+  Bundler: Using ffi 1.15.5 (x64-mingw32)
+  Bundler: Using forwardable-extended 2.6.0
+  Bundler: Using rb-fsevent 0.11.2
+  Bundler: Using rexml 3.2.5
+  Bundler: Using liquid 4.0.3
+  Bundler: Using mercenary 0.4.0
+  Bundler: Using rouge 4.0.0
+  Bundler: Using safe_yaml 1.0.5
+  Bundler: Using unicode-display_width 2.3.0
+  Bundler: Using webrick 1.7.0
+  Bundler: Using wdm 0.1.1
+  Bundler: Using addressable 2.8.1
+  Bundler: Using kramdown 2.4.0
+  Bundler: Using em-websocket 0.5.3
+  Bundler: Using sassc 2.4.0 (x64-mingw32)
+  Bundler: Using rb-inotify 0.10.1
+  Bundler: Using pathutil 0.16.2
+  Bundler: Using i18n 1.12.0
+  Bundler: Using tzinfo 2.0.5
+  Bundler: Using jekyll-sass-converter 2.2.0
+  Bundler: Using listen 3.7.1
+  Bundler: Using terminal-table 3.0.2
+  Bundler: Using jekyll-watch 2.2.1
+  Bundler: Using tzinfo-data 1.2022.7
+  Bundler: Using kramdown-parser-gfm 1.1.0
+  Bundler: Using jekyll 4.3.1
+  Bundler: Using jekyll-feed 0.17.0
+  Bundler: Using jekyll-seo-tag 2.8.0
+  Bundler: Using minima 2.5.1
+  Bundler: Bundle complete! 7 Gemfile dependencies, 35 gems now installed.
+  Bundler: Use `bundle info [gemname]` to see where a bundled gem is installed.
+New jekyll site installed in C:/Users/will/Documents/GitHub/jekyll-test/docs.
+
+
+#CD in the Docs folder
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub/jekyll-test (main)
+$ cd docs
+
+
+
+#Execute and serve the jekyll site on a local server via bundle
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub/jekyll-test/docs (main)
+$ bundle exec jekyll serve
+Configuration file: C:/Users/will/Documents/GitHub/jekyll-test/docs/_config.yml
+            Source: C:/Users/will/Documents/GitHub/jekyll-test/docs
+       Destination: C:/Users/will/Documents/GitHub/jekyll-test/docs/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+       Jekyll Feed: Generating feed for posts
+                    done in 2.219 seconds.
+ Auto-regeneration: enabled for 'C:/Users/will/Documents/GitHub/jekyll-test/docs'
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+Terminate batch job (Y/N)? y
+y
+
+
+#After terminating the server with ctrl-c, CD back into the project folder
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub/jekyll-test/docs (main)
+$ cd ..
+
+
+#Add documents, commit and push to the GitHub repository
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub/jekyll-test (main)
+$ git add .
+warning: in the working copy of 'docs/.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/404.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/Gemfile.lock', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/_config.yml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/about.markdown', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/index.markdown', LF will be replaced by CRLF the next time Git touches it
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub/jekyll-test (main)
+$ git commit -a -m "Initiall Jekyll Base Commit"
+[main (root-commit) 2b7487d] Initiall Jekyll Base Commit
+ 8 files changed, 259 insertions(+)
+ create mode 100644 docs/.gitignore
+ create mode 100644 docs/404.html
+ create mode 100644 docs/Gemfile
+ create mode 100644 docs/Gemfile.lock
+ create mode 100644 docs/_config.yml
+ create mode 100644 docs/_posts/2022-12-09-welcome-to-jekyll.markdown
+ create mode 100644 docs/about.markdown
+ create mode 100644 docs/index.markdown
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub/jekyll-test (main)
+$ git push origin main
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (12/12), 4.51 KiB | 2.25 MiB/s, done.
+Total 12 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/studiobvio/jekyll-test.git
+ * [new branch]      main -> main
+
+will@DESKTOP-BBDGR25 MINGW64 ~/Documents/GitHub/jekyll-test (main)
+$
+
+#In Github publish pages under "Settings", "Code and Automation", "Pages", Deploy from Branch,
+#and Select "/docs" folder and save
+
+
+#Open Folder in VS Codium and Open GemFile under /Docs
+
+#Add "#" to the beginning of the line that starts with gem "jekyll" to comment out this line.
+
+
+#Add the github-pages gem by editing the line starting with # gem "github-pages". Change this line to:
+# "gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins"
+#Replace GITHUB-PAGES-VERSION with the latest supported version of the github-pages gem.
+#You can find this version here: "Dependency versions." (https://pages.github.com/versions/)
+
+#Save and Close GemFile
+
+#Open _config.yml and edit changes.
+
+#For baseurl use github user address: https://github.com/studiobvio
+#for "url" use the repository name: /jekyll-test

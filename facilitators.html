@@ -1,0 +1,17 @@
+---
+layout: default
+title: Facilitators
+---
+
+<h1>Facilitators</h1>
+
+<ul>
+  {% for facilitator in site.facilitators %}
+  <li>
+    <h2><a href="{{ facilitator.url }}"> {{ facilitator.name }} </a></h2>
+    <h3>{{ facilitator.position }}</h3>
+    <a href="{{ facilitator.website }}">Website</a>
+    <p>{{ facilitator.content | markdownify }}</p>
+  </li>
+  {% endfor %}
+</ul>
